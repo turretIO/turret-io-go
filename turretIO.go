@@ -146,9 +146,9 @@ func (t *Target) Get(target_name string) (*TurretIOResponse, error) {
 // Create adds a new target specified by the target_name with the attributes specified in attribute_map
 // Example:
 // Create("new_target", map[string]string{"location":"west coast", "logins":"10", "premium":"1"})
-func (t *Target) Create(target_name string, attribute_map map[string]interface {}) (*TurretIOResponse, error) {
+func (t *Target) Create(target_name string, attribute_list []map[string]interface {}) (*TurretIOResponse, error) {
 	payload := make(map[string]interface{})
-	payload["attributes"] = attribute_map
+	payload["attributes"] = attribute_list
 
 	url := fmt.Sprintf("%s/%s", TARGET_PATH, target_name)
 	resp, err := t.TH.PostRequest(url, &payload, t.TH.GetHTTPClient())
@@ -157,9 +157,9 @@ func (t *Target) Create(target_name string, attribute_map map[string]interface {
 
 // Update updates an existing target specified by the target_name with the attributes specified in the attribute_map.
 // This works just like Create but updates an existing target.
-func (t *Target) Update(target_name string, attribute_map map[string]interface {}) (*TurretIOResponse, error) {
+func (t *Target) Update(target_name string, attribute_list []map[string]interface {}) (*TurretIOResponse, error) {
 	payload := make(map[string]interface{})
-	payload["attributes"] = attribute_map
+	payload["attributes"] = attribute_list
 
 	url := fmt.Sprintf("%s/%s", TARGET_PATH, target_name)
 	resp, err := t.TH.PostRequest(url, &payload, t.TH.GetHTTPClient())
