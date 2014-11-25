@@ -27,7 +27,7 @@ import (
     "time"
 )
 
-const ENDPOINT = "https://dev-api.turret.io"
+const ENDPOINT = "https://api.turret.io"
 const USER_PATH = "/latest/user"
 const TARGET_EMAIL_PATH = "/latest/target"
 const TARGET_PATH = "/latest/target"
